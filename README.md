@@ -1,2 +1,3 @@
 # MyVueProject
-Learning how to use vue.js by myself
+Why I start this project？
+Just because I need changes。
