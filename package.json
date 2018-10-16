@@ -1,0 +1,23 @@
+{
+  "name": "MyVueProject",
+  "version": "1.0.0",
+  "description": "Why I start this project？\r Just because I need changes。",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dincccc/MyVueProject.git"
+  },
+  "keywords": [],
+  "author": "dincccc",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dincccc/MyVueProject/issues"
+  },
+  "homepage": "https://github.com/dincccc/MyVueProject#readme",
+  "dependencies": {
+    "vue": "^2.5.17"
+  }
+}
