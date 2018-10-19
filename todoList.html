@@ -11,7 +11,7 @@
 	<!-- 数组 列表 -->
 	<div id="todoList-example">
 		<label for="inputToDo">todoList</label>
-		<input id="inputToDo" type="text" name="inputToDo" placeholder="input something here" v-model="NewtodoText">
+		<input id="inputToDo" type="text" name="inputToDo" placeholder="input something here" v-model="NewtodoText" >{{dialog}}
 		<button @click.prevent="addtodo()">ADD</button>
 
 		<ul>
@@ -31,6 +31,7 @@
 		new Vue({
 			el: "#todoList-example",
 			data: {
+				dialog: '',
 				NewtodoText: '',
 				todos: [{
 						todoId: 1,
@@ -45,11 +46,17 @@
 			},
 			methods: {
 				addtodo: function(){
-					this.todos.push({
-						todoId: this.nexttodoId++,
-						todoText: this.NewtodoText,
-					})
-					this.NewtodoText='';
+					if(this.NewtodoText!=''){
+						this.todos.push({
+							todoId: this.nexttodoId++,
+							todoText: this.NewtodoText,
+						})
+						this.NewtodoText='';
+						this.dialog = '';
+					}else{
+						this.dialog = '请输入一些东西';
+					}
+
 				}
 			}
 		})
