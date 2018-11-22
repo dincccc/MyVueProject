@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<title>canvas</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<style type="text/css">
+		.wrapper{
+			margin: 0 auto;
+			width: 1000px;
+			transform: scale(.6);
+		}
+		#main,#main2,#mix-Q{
+			border: 1px solid #ccc;
+			/*background: #ccc;*/
+		}
+		#main2{
+			margin-top: 40px;
+		}
+		#mix-Q{
+
+		}
+	</style>
+</head>
+<body>
+	<div class="wrapper">
+		<canvas id="main" width="1000" height="400"></canvas>
+		<canvas id="main2" width="1000" height="600"></canvas>
+	</div>
+	<div class="wrapper">
+		<canvas id="mix-Q" width="1000" height="400"></canvas>
+	</div>
+
+<!-- main -->
+	<script type="text/javascript">
+			var cvs = document.getElementById('main');
+			var ctx = cvs.getContext("2d");
+			ctx.shadowColor="#000";
+			ctx.shadowBlur=4;
+			ctx.shadowOffsetX=4;
+			ctx.shadowOffsetY=4;
+			// react(x, y, w, h)
+			for(let i=0;i<=9;i++){
+				for(let j=0;j<=5;j++){
+					let r = Math.floor(255-25.5*i);
+					let g = Math.floor(255-42.5*j);
+					ctx.fillStyle = "rgb("+r+","+g+",0)";
+					ctx.fillRect(60*i+i*6,60*j+j*6,60,60);
+					ctx.fill();
+				}
+			}
+			// 白色三角形
+			// ctx.shadowColor="#444";
+			// ctx.shadowBlur=2;
+			// ctx.shadowOffsetX=10;
+			// ctx.shadowOffsetY=10; 
+			ctx.beginPath();
+			ctx.fillStyle = "white";
+			ctx.moveTo(900,255);
+			ctx.lineTo(940,215);
+			ctx.lineTo(860,215);
+			ctx.closePath();
+			ctx.fill();
+			// 黑色三角形
+			ctx.beginPath();
+			ctx.fillStyle = "black";
+			ctx.moveTo(900,160);
+			ctx.lineTo(940,200);
+			ctx.lineTo(860,200);
+			ctx.fill();
+	</script>
+<!-- main2 -->
+	<script>
+			var cvs2 = document.getElementById('main2');
+			var ctx2 = cvs2.getContext("2d");
+			// arc(x, y, 半径, 开始角度, 结束角度, [顺时针|逆时针])
+			// 弧度=(Math.PI/180)*角度 ==> Math.PI * (角度/180)
+			// fill ==> 填充   stroke ==> 描边  clear ==> 清除
+			ctx2.shadowColor="#444";
+			ctx2.shadowBlur=4;
+			ctx2.shadowOffsetX=6;
+			ctx2.shadowOffsetY=8;
+			for(let i=0;i<=9;i++){
+				for(let j=0;j<=5;j++){
+					let g = Math.floor(255-25.5*i);
+					let b = Math.floor(255-42.5*j);
+					ctx2.fillStyle = "rgb(0,"+g+","+b+")";
+					ctx2.beginPath();
+					ctx2.arc(40+i*80+i*15,40+80*j+j*15,40,0,Math.PI*2,true);
+					ctx2.fill();
+				}
+			}		
+	</script>
+
+<!-- mix-Q -->
+	<script>
+		
+	</script>
+</body>
+</html>

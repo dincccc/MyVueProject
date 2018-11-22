@@ -1,65 +1,73 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
-	<title>VueProject-todoList</title>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-	<script type="text/javascript" src="node_modules/vue/dist/vue.js"></script>
+    <title>VueProject-todoList</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <script type="text/javascript" src="node_modules/vue/dist/vue.js"></script>
+    <script type="text/javascript" src="../alloydesigner.js"></script>
+    <!-- 	<script type="text/javascript">
+    $AD.set("list.png");
+  	</script> -->
 </head>
+
 <body>
-	<!-- 输入 添加 删除 -->
-	<!-- 数组 列表 -->
-	<div id="todoList-example">
-		<label for="inputToDo">todoList</label>
-		<input id="inputToDo" type="text" name="inputToDo" placeholder="input something here" v-model="NewtodoText" >{{dialog}}
-		<button @click.prevent="addtodo()">ADD</button>
+    <!-- 输入 添加 删除 -->
+    <!-- 数组 列表 -->
+    <div id="todoList-example">
+        <label for="inputToDo">todoList</label>
+        <input id="inputToDo" type="text" name="inputToDo" placeholder="input something here" v-model="NewtodoText">{{dialog}}
+        <button @click.prevent="addtodo()">ADD</button>
+        <ul>
+            <li is="todo-item" v-for="(todo, index) of todos" :text="todo" @remove="todos.splice(index,1)"></li>
+        </ul>
+        <p v-text="msg+'头像'">====</p>
+        <p>==={{msg}}=</p>
+        <p v-html="msgHtml">====</p>
+        <p v-html="msgHtml+'<h2>头像</h2>'">====</p>
+    </div>
 
-		<ul>
-			<li is="todo-item" 
-			v-for="(todo, index) of todos"
-			:text="todo"
-			@remove="todos.splice(index,1)"
-			></li>
-		</ul>
-	</div>
+    <script type="text/javascript">
+    Vue.component("todo-item", {
+        template: '<li>{{text.todoId+text.todoText}}<button @click="$emit(\'remove\')">Remove</button></li>',
+        props: ['text'],
+    })
+    var vm = new Vue({
+        el: "#todoList-example",
+        data: {
+            msg: 'foxmail',
+            msgHtml: '<h1>You don\'t do this</h1>',
+            dialog: '',
+            NewtodoText: '',
+            todos: [{
+                    todoId: 1,
+                    todoText: '今晚吃鸡',
+                },
+                {
+                    todoId: 2,
+                    todoText: '大吉大利'
+                }
+            ],
+            nexttodoId: 3,
+        },
+        methods: {
+            addtodo: function() {
+                if (this.NewtodoText != '') {
+                    this.todos.push({
+                        todoId: this.nexttodoId++,
+                        todoText: this.NewtodoText,
+                    })
+                    this.NewtodoText = '';
+                    this.dialog = '';
+                } else {
+                    this.dialog = '请输入一些东西';
+                }
 
-	<script type="text/javascript">
-		Vue.component("todo-item",{
-			template: '<li>{{text.todoId+text.todoText}}<button @click="$emit(\'remove\')">Remove</button></li>',
-			props: ['text'],
-		})
-		new Vue({
-			el: "#todoList-example",
-			data: {
-				dialog: '',
-				NewtodoText: '',
-				todos: [{
-						todoId: 1,
-						todoText: '今晚吃鸡',
-					},
-					{
-						todoId: 2,
-						todoText: '大吉大利'
-					}
-				],
-				nexttodoId: 3,
-			},
-			methods: {
-				addtodo: function(){
-					if(this.NewtodoText!=''){
-						this.todos.push({
-							todoId: this.nexttodoId++,
-							todoText: this.NewtodoText,
-						})
-						this.NewtodoText='';
-						this.dialog = '';
-					}else{
-						this.dialog = '请输入一些东西';
-					}
-
-				}
-			}
-		})
-	</script>
+            }
+        }
+    })
+    </script>
 </body>
+
 </html>

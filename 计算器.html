@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <title>VueProject-todoList</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <script type="text/javascript" src="node_modules/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <input type="number" v-model="firstNum">
+        <select v-model="operator">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+        </select>
+        <input type="number" v-model="nextNum">
+        <button @click="completeKey">=</button>
+        <input type="text" v-model="theResult">
+    </div>
+    <script type="text/javascript">
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            firstNum: 0,
+            nextNum: 0,
+            theResult: 0,
+            operator: '+'
+        },
+        methods: {
+            completeKey() {
+                return this.theResult = eval(this.firstNum + this.operator + this.nextNum);
+            }
+        }
+    })
+    </script>
+</body>
+
+</html>
