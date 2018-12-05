@@ -1,0 +1,40 @@
+body{
+	padding: 10px;
+	margin: 0;
+}
+
+.common{
+/* 	padding: 0;
+	margin: 4px 0; */
+	background: #edf;
+	border: 1px solid #143cc5;
+	transition: all .4s;
+}
+/* 块级元素 */
+.el-block{
+	width: 400px;
+}
+/* 表单 */
+/* caption 背景颜色设置无效*/
+caption{
+	background: darkblue;
+}
+/* tab表单 th td 元素宽度需设置百分比 */
+th:first-child{
+	background: darkgreen;
+	width: 20%;
+}
+/* 行内元素 */
+/* input select textarea 受width影响*/
+.el-line{
+/* 	width: 10px;	 */
+}
+/* img 受图片尺寸影响 */
+/* img 无图片时受alt内容影响 不受width影响 */
+img{
+	width: 100px;
+	height: 10px;
+}
+.fix{
+	width: 700px;
+}

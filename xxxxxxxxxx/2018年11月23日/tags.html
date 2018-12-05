@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>TAGS</title>
+	<link rel="stylesheet" href="tags.css">
+	<!-- <link rel="stylesheet" href="https://cdn.bootcss.com/twitter-bootstrap/4.1.3/css/bootstrap.min.css"> -->
+	<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+</head>
+<body>
+	<button id='ccl'>click</button>
+	块级元素列表<!-- 块级元素列表 -->
+	<address class="el-block common">address 定义地址</address> 
+	<div class="el-block common">div 定义文档中的分区或节</div> 
+	<dl class="el-block common">dl 定义列表
+		<dd class="el-block common">dd 定义列表中定义条目</dd> 
+		<dt class="el-block common">dt1 定义列表中的项目</dt> 
+		<dt class="el-block common">dt2 定义列表中的项目</dt> 
+	</dl> 
+<fieldset class="el-block common">fieldset 定义一个框架集</fieldset><form action="" class="el-block common">form 创建 HTML 表单</form><h1 class="el-block common">H1 定义最大的标题</h1><h2 class="el-block common">H2 定义副标题</h2><h3 class="el-block common">H3 定义标题</h3><h4 class="el-block common">H4 定义标题</h4><h5 class="el-block common">H5 定义标题</h5><h6 class="el-block common">H6 定义最小的标题</h6><hr class="el-block common" value="创建一条水平线"><legend class="el-block common">legend 元素为 fieldset 元素定义标题</legend><ul class="el-block common">UL定义无序列表</ul><noframes class="el-block common">noframes 为那些不支持框架的浏览器显示文本，于 frameset 元素内部</noframes><noscript class="el-block common">noscript 定义在脚本未被执行时的替代内容</noscript><p class="el-block common">p 标签定义段落</p><pre class="el-block common">pre 定义预格式化的文本</pre><table class="el-block common"><!-- table 标签定义 HTML 表格 -->
+		<caption class="el-block common">caption 定义表格标题</caption> 
+		<thead class="el-block common"><!-- thead 标签定义表格的表头 -->
+			<tr class="el-block common"><!-- 定义表格中的行 -->
+				<th class="el-block common">th 定义表头单元格 thead</th> 
+				<th class="el-block common">th 定义表头单元格 thead</th> 
+			</tr> 
+		</thead> 
+		<tbody class="el-block common"><!-- tbody 标签表格主体（正文） -->
+			<tr class="el-block common"><!-- 定义表格中的行 -->
+				<td class="el-block common">td 表格中的标准单元 tbody</td>
+				<td class="el-block common">td 表格中的标准单元 tbody</td>
+			</tr> 
+		</tbody> 
+		<tfoot class="el-block common"><!-- tfoot 定义表格的页脚（脚注表注） -->
+			<tr class="el-block common"><!-- 定义表格中的行 -->
+				<td class="el-block common">td 表格中的标准单元 tfoot</td>
+				<td class="el-block common">td 表格中的标准单元 tfoot</td>
+			</tr> 
+		</tfoot> 
+	</table> 
+
+
+	行内元素列表 <br><!-- 行内元素列表 -->
+	<a href="#a" class="el-line common">a 标签可定义锚</a><abbr title="表示一个缩写形式" class="el-line common">abbr</abbr><acronym title="定义只取首字母缩写" class="el-line common">acronym</acronym><b class="el-line common">b 字体加粗</b><bdo dir="ltr" class="el-line common">bdo-ltr 可覆盖默认的文本方向 →</bdo><bdo dir="rtl" class="el-line common">bdo-rtl 可覆盖默认的文本方向 ←</bdo><big class="el-line common">big 大号字体加粗</big>*┛<br class="el-line common" value="换行"><cite class="el-line common">cite 引用进行定义</cite><code class="el-line common">code 定义计算机代码文本</code><dfn class="el-line common">dfn 定义一个定义项目</dfn><em class="el-line common">em 定义为强调的内容</em><i class="el-line common">i 斜体文本效果</i><img src="" alt="img 向网页中嵌入一幅图像" class="el-line common"><img src="img/subHomePage-bg.png" alt="img 向网页中嵌入一幅图像" class="el-line common"><label for="label-input" class="el-line common">label 标签为 input 元素定义标注（标记）</label><input id="label-input" type="text" class="el-line common" placeholder="input输入框"><kbd class="el-line common">kbd 定义键盘文本</kbd><q class="el-line common">q 定义短的引用</q><samp class="el-line common">samp 定义样本文本</samp><select name="select" id="" class="el-line common"><option value="0">select 创建单选或多选菜单</option></select><small class="el-line common">small 呈现小号字体效果</small><span class="el-line common">span 组合文档中的行内元素</span><strong class="el-line common">strong 语气更强的强调的内容</strong><sub class="el-line common">sub 定义下标文本</sub><sup class="el-line common">sup 定义上标文本</sup><textarea name="" id="" cols=" " rows=" " class="el-line common">textarea 多行的文本输入控件</textarea><tt class="el-line common">tt 打字机或者等宽的文本效果</tt><var class="el-line common">var 定义变量</var> 
+
+		<script>
+
+			$('.common').each(function(index){
+				var _this = $(this);
+				$(this).click(function(){
+						_this.css('width','800px');
+					})
+			})
+	</script>
+</body>
+</html>
